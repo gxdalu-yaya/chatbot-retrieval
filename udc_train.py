@@ -8,8 +8,8 @@ import udc_metrics
 import udc_inputs
 from models.dual_encoder import dual_encoder_model
 
-tf.flags.DEFINE_string("input_dir", "./data", "Directory containing input data files 'train.tfrecords' and 'validation.tfrecords'")
-tf.flags.DEFINE_string("model_dir", None, "Directory to store model checkpoints (defaults to ./runs)")
+tf.flags.DEFINE_string("input_dir", "./jinfu_data", "Directory containing input data files 'train.tfrecords' and 'validation.tfrecords'")
+tf.flags.DEFINE_string("model_dir", "./jinfu_model", "Directory to store model checkpoints (defaults to ./runs)")
 tf.flags.DEFINE_integer("loglevel", 20, "Tensorflow log level")
 tf.flags.DEFINE_integer("num_epochs", None, "Number of training Epochs. Defaults to indefinite.")
 tf.flags.DEFINE_integer("eval_every", 200, "Evaluate after this many train steps")
@@ -37,7 +37,7 @@ def main(unused_argv):
   estimator = tf.contrib.learn.Estimator(
     model_fn=model_fn,
     model_dir=MODEL_DIR,
-    config=tf.contrib.learn.RunConfig())
+    config=tf.contrib.learn.RunConfig(save_checkpoints_secs=1))
 
   input_fn_train = udc_inputs.create_input_fn(
     mode=tf.contrib.learn.ModeKeys.TRAIN,

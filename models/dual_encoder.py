@@ -5,19 +5,22 @@ from models import helpers
 FLAGS = tf.flags.FLAGS
 
 def get_embeddings(hparams):
-  if hparams.glove_path and hparams.vocab_path:
+  if hparams.w2v_path and hparams.vocab_path:
     tf.logging.info("Loading Glove embeddings...")
     vocab_array, vocab_dict = helpers.load_vocab(hparams.vocab_path)
-    glove_vectors, glove_dict = helpers.load_glove_vectors(hparams.glove_path, vocab=set(vocab_array))
-    initializer = helpers.build_initial_embedding_matrix(vocab_dict, glove_dict, glove_vectors, hparams.embedding_dim)
+    w2v_vectors, w2v_dict = helpers.load_w2v_vectors(hparams.w2v_path, vocab=set(vocab_array))
+    initializer = helpers.build_initial_embedding_matrix(vocab_dict, w2v_dict, w2v_vectors, hparams.embedding_dim)
   else:
-    tf.logging.info("No glove/vocab path specificed, starting with random embeddings.")
+    tf.logging.info("No w2v/vocab path specificed, starting with random embeddings.")
     initializer = tf.random_uniform_initializer(-0.25, 0.25)
 
+  return tf.Variable(initializer, name="vocab_w")
+  '''
   return tf.get_variable(
     "word_embeddings",
     shape=[hparams.vocab_size, hparams.embedding_dim],
     initializer=initializer)
+  '''
 
 
 def dual_encoder_model(
