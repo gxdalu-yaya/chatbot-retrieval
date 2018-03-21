@@ -43,7 +43,7 @@ def create_csv_iter(filename):
     # Skip the header
     #next(reader)
     for row in csvfile:
-      yield row
+      yield row.split("\t")
 
 
 def create_vocab(input_iter, min_frequency):
@@ -82,6 +82,7 @@ def create_example_train(row, vocab):
   Returnsthe a tensorflow.Example Protocol Buffer object.
   """
   context, utterance, label = row
+  #print "context:", context, "utterance", utterance, "label", label
   context_transformed = transform_sentence(context, vocab)
   utterance_transformed = transform_sentence(utterance, vocab)
   context_len = len(next(vocab._tokenizer([context])))
@@ -104,6 +105,7 @@ def create_example_test(row, vocab):
   Returnsthe a tensorflow.Example Protocol Buffer object.
   """
   context, utterance = row[:2]
+  #print "context:", context, "utterance", utterance
   distractors = row[2:]
   context_len = len(next(vocab._tokenizer([context])))
   utterance_len = len(next(vocab._tokenizer([utterance])))
@@ -140,7 +142,7 @@ def create_tfrecords_file(input_filename, output_filename, example_fn):
   for i, row in enumerate(create_csv_iter(input_filename)):
     #print("row:" + row)
     #x = example_fn(row)
-    x = example_fn(row.split("\t"))
+    x = example_fn(row)
     writer.write(x.SerializeToString())
   writer.close()
   print("Wrote to {}".format(output_filename))
@@ -162,7 +164,8 @@ if __name__ == "__main__":
   print("Creating vocabulary...")
   input_iter = create_csv_iter(TRAIN_PATH)
   input_iter = (x[0] + " " + x[1] for x in input_iter)
-  #vocab = create_vocab(input_iter, min_frequency=FLAGS.min_word_frequency)
+  vocab = create_vocab(input_iter, min_frequency=FLAGS.min_word_frequency)
+  '''
   vocabulary = categorical_vocabulary.CategoricalVocabulary()
   vocabulary_file = open("../jinfu_data/vocabulary.w2v")
   for line in vocabulary_file:
@@ -171,6 +174,7 @@ if __name__ == "__main__":
   vocabulary.freeze()
   vocab = learn.preprocessing.VocabularyProcessor(FLAGS.max_sentence_len, min_frequency=0, vocabulary=vocabulary)
   vocab.fit(input_iter)
+  '''
   print("Total vocabulary size: {}".format(len(vocab.vocabulary_)))
 
   # Create vocabulary.txt file
