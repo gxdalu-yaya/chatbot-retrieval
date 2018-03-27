@@ -26,8 +26,8 @@ def create_model_fn(hparams, model_impl):
     utterance, utterance_len = get_id_feature(
         features, "utterance", "utterance_len", hparams.max_utterance_len)
 
-    batch_size = targets.get_shape().as_list()[0]
-    print("model_fn: batch_size" + str(batch_size))
+    #batch_size = targets.get_shape().as_list()[0]
+    #print("model_fn: batch_size" + str(batch_size))
 
     if mode == tf.contrib.learn.ModeKeys.TRAIN:
       probs, loss = model_impl(
@@ -55,6 +55,7 @@ def create_model_fn(hparams, model_impl):
     if mode == tf.contrib.learn.ModeKeys.EVAL:
 
       # We have 10 exampels per record, so we accumulate them
+      batch_size = targets.get_shape().as_list()[0]
       all_contexts = [context]
       all_context_lens = [context_len]
       all_utterances = [utterance]

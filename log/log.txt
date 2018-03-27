@@ -1,0 +1,4 @@
+validation_res:
+recall_at_5 = 0.99652173913, recall_at_2 = 0.964782608696, recall_at_1 = 0.885217391304
+test_res:
+recall_at_1 = 0.886037407569, recall_at_10 = 1.0, recall_at_2 = 0.95867768595, recall_at_5 = 0.992605480644

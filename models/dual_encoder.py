@@ -1,3 +1,4 @@
+#coding=utf-8
 import tensorflow as tf
 import numpy as np
 from models import helpers
@@ -10,17 +11,15 @@ def get_embeddings(hparams):
     vocab_array, vocab_dict = helpers.load_vocab(hparams.vocab_path)
     w2v_vectors, w2v_dict = helpers.load_w2v_vectors(hparams.w2v_path, vocab=set(vocab_array))
     initializer = helpers.build_initial_embedding_matrix(vocab_dict, w2v_dict, w2v_vectors, hparams.embedding_dim)
+    #return tf.Variable(initializer, name="vocab_w")
   else:
     tf.logging.info("No w2v/vocab path specificed, starting with random embeddings.")
     initializer = tf.random_uniform_initializer(-0.25, 0.25)
 
-  return tf.Variable(initializer, name="vocab_w")
-  '''
   return tf.get_variable(
     "word_embeddings",
     shape=[hparams.vocab_size, hparams.embedding_dim],
     initializer=initializer)
-  '''
 
 
 def dual_encoder_model(
@@ -50,15 +49,14 @@ def dual_encoder_model(
         forget_bias=2.0,
         use_peepholes=True,
         state_is_tuple=True)
-
+    # 加上dropout
+    cell = tf.contrib.rnn.DropoutWrapper(cell, output_keep_prob=0.5)
     # Run the utterance and context through the RNN
     rnn_outputs, rnn_states = tf.nn.dynamic_rnn(
         cell,
-        #tf.concat(0, [context_embedded, utterance_embedded]),
         tf.concat([context_embedded, utterance_embedded], 0),
         sequence_length=tf.concat([context_len, utterance_len], 0),
         dtype=tf.float32)
-    #encoding_context, encoding_utterance = tf.split(0, 2, rnn_states.h)
     encoding_context, encoding_utterance = tf.split(rnn_states.h, 2, 0)
 
   with tf.variable_scope("prediction") as vs:

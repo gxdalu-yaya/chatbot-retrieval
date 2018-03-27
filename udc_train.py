@@ -1,5 +1,6 @@
 import os
 import time
+import logging
 import itertools
 import tensorflow as tf
 import udc_model
@@ -26,6 +27,7 @@ TRAIN_FILE = os.path.abspath(os.path.join(FLAGS.input_dir, "train.tfrecords"))
 VALIDATION_FILE = os.path.abspath(os.path.join(FLAGS.input_dir, "validation.tfrecords"))
 
 tf.logging.set_verbosity(FLAGS.loglevel)
+#tf.logging._logger.basicConfig(filename='./log/tensorflow.log', level=logging.DEBUG)
 
 def main(unused_argv):
   hparams = udc_hparams.create_hparams()
