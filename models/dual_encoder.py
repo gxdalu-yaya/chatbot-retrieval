@@ -50,7 +50,7 @@ def dual_encoder_model(
         use_peepholes=True,
         state_is_tuple=True)
     # 加上dropout
-    cell = tf.contrib.rnn.DropoutWrapper(cell, output_keep_prob=0.5)
+    #cell = tf.contrib.rnn.DropoutWrapper(cell, output_keep_prob=0.5)
     # Run the utterance and context through the RNN
     rnn_outputs, rnn_states = tf.nn.dynamic_rnn(
         cell,

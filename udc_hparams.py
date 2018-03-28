@@ -20,7 +20,7 @@ tf.flags.DEFINE_string("w2v_path", None, "Path to pre-trained Glove vectors")
 tf.flags.DEFINE_string("vocab_path", None, "Path to vocabulary.txt file")
 
 # Training Parameters
-tf.flags.DEFINE_float("learning_rate", 0.0001, "Learning rate")
+tf.flags.DEFINE_float("learning_rate", 0.0005, "Learning rate")
 tf.flags.DEFINE_integer("batch_size", 64, "Batch size during training")
 tf.flags.DEFINE_integer("eval_batch_size", 2, "Batch size during evaluation")
 tf.flags.DEFINE_string("optimizer", "Adam", "Optimizer Name (Adam, Adagrad, etc)")

@@ -2822,96 +2822,6 @@ node {
   }
 }
 node {
-  name: "rnn/DropoutWrapperInit/Const"
-  op: "Const"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "rnn/DropoutWrapperInit/Const_1"
-  op: "Const"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "rnn/DropoutWrapperInit/Const_2"
-  op: "Const"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.5
-      }
-    }
-  }
-}
-node {
   name: "rnn/concat/axis"
   op: "Const"
   attr {
@@ -3358,7 +3268,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const"
+  name: "rnn/rnn/LSTMCellZeroState/Const"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3394,7 +3304,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_1"
+  name: "rnn/rnn/LSTMCellZeroState/Const_1"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3430,7 +3340,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat/axis"
+  name: "rnn/rnn/LSTMCellZeroState/concat/axis"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3460,11 +3370,11 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat"
+  name: "rnn/rnn/LSTMCellZeroState/concat"
   op: "ConcatV2"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_1"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat/axis"
+  input: "rnn/rnn/LSTMCellZeroState/Const"
+  input: "rnn/rnn/LSTMCellZeroState/Const_1"
+  input: "rnn/rnn/LSTMCellZeroState/concat/axis"
   attr {
     key: "N"
     value {
@@ -3497,7 +3407,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_2"
+  name: "rnn/rnn/LSTMCellZeroState/Const_2"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3533,7 +3443,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_3"
+  name: "rnn/rnn/LSTMCellZeroState/Const_3"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3569,7 +3479,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros/Const"
+  name: "rnn/rnn/LSTMCellZeroState/zeros/Const"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3599,10 +3509,10 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros"
+  name: "rnn/rnn/LSTMCellZeroState/zeros"
   op: "Fill"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros/Const"
+  input: "rnn/rnn/LSTMCellZeroState/concat"
+  input: "rnn/rnn/LSTMCellZeroState/zeros/Const"
   attr {
     key: "T"
     value {
@@ -3626,7 +3536,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_4"
+  name: "rnn/rnn/LSTMCellZeroState/Const_4"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3662,7 +3572,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_5"
+  name: "rnn/rnn/LSTMCellZeroState/Const_5"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3698,7 +3608,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat_1/axis"
+  name: "rnn/rnn/LSTMCellZeroState/concat_1/axis"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3728,11 +3638,11 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat_1"
+  name: "rnn/rnn/LSTMCellZeroState/concat_1"
   op: "ConcatV2"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_4"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_5"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat_1/axis"
+  input: "rnn/rnn/LSTMCellZeroState/Const_4"
+  input: "rnn/rnn/LSTMCellZeroState/Const_5"
+  input: "rnn/rnn/LSTMCellZeroState/concat_1/axis"
   attr {
     key: "N"
     value {
@@ -3765,7 +3675,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_6"
+  name: "rnn/rnn/LSTMCellZeroState/Const_6"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3801,7 +3711,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/Const_7"
+  name: "rnn/rnn/LSTMCellZeroState/Const_7"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3837,7 +3747,7 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros_1/Const"
+  name: "rnn/rnn/LSTMCellZeroState/zeros_1/Const"
   op: "Const"
   attr {
     key: "_output_shapes"
@@ -3867,10 +3777,10 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros_1"
+  name: "rnn/rnn/LSTMCellZeroState/zeros_1"
   op: "Fill"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/concat_1"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros_1/Const"
+  input: "rnn/rnn/LSTMCellZeroState/concat_1"
+  input: "rnn/rnn/LSTMCellZeroState/zeros_1/Const"
   attr {
     key: "T"
     value {
@@ -5289,7 +5199,7 @@ node {
 node {
   name: "rnn/rnn/while/Enter_2"
   op: "Enter"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros"
+  input: "rnn/rnn/LSTMCellZeroState/zeros"
   attr {
     key: "T"
     value {
@@ -5333,7 +5243,7 @@ node {
 node {
   name: "rnn/rnn/while/Enter_3"
   op: "Enter"
-  input: "rnn/rnn/DropoutWrapperZeroState/LSTMCellZeroState/zeros_1"
+  input: "rnn/rnn/LSTMCellZeroState/zeros_1"
   attr {
     key: "T"
     value {
@@ -8559,362 +8469,6 @@ node {
   }
 }
 node {
-  name: "rnn/rnn/while/dropout/keep_prob"
-  op: "Const"
-  input: "^rnn/rnn/while/Identity"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.5
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/Shape"
-  op: "Const"
-  input: "^rnn/rnn/while/Identity"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 2
-          }
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_INT32
-        tensor_shape {
-          dim {
-            size: 2
-          }
-        }
-        tensor_content: "\200\000\000\000@\000\000\000"
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/random_uniform/min"
-  op: "Const"
-  input: "^rnn/rnn/while/Identity"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 0.0
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/random_uniform/max"
-  op: "Const"
-  input: "^rnn/rnn/while/Identity"
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "value"
-    value {
-      tensor {
-        dtype: DT_FLOAT
-        tensor_shape {
-        }
-        float_val: 1.0
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/random_uniform/RandomUniform"
-  op: "RandomUniform"
-  input: "rnn/rnn/while/dropout/Shape"
-  attr {
-    key: "T"
-    value {
-      type: DT_INT32
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-  attr {
-    key: "dtype"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "seed"
-    value {
-      i: 0
-    }
-  }
-  attr {
-    key: "seed2"
-    value {
-      i: 0
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/random_uniform/sub"
-  op: "Sub"
-  input: "rnn/rnn/while/dropout/random_uniform/max"
-  input: "rnn/rnn/while/dropout/random_uniform/min"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-        }
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/random_uniform/mul"
-  op: "Mul"
-  input: "rnn/rnn/while/dropout/random_uniform/RandomUniform"
-  input: "rnn/rnn/while/dropout/random_uniform/sub"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/random_uniform"
-  op: "Add"
-  input: "rnn/rnn/while/dropout/random_uniform/mul"
-  input: "rnn/rnn/while/dropout/random_uniform/min"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/add"
-  op: "Add"
-  input: "rnn/rnn/while/dropout/keep_prob"
-  input: "rnn/rnn/while/dropout/random_uniform"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/Floor"
-  op: "Floor"
-  input: "rnn/rnn/while/dropout/add"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/div"
-  op: "RealDiv"
-  input: "rnn/rnn/while/rnn/lstm_cell/lstm_cell/mul_5"
-  input: "rnn/rnn/while/dropout/keep_prob"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-}
-node {
-  name: "rnn/rnn/while/dropout/mul"
-  op: "Mul"
-  input: "rnn/rnn/while/dropout/div"
-  input: "rnn/rnn/while/dropout/Floor"
-  attr {
-    key: "T"
-    value {
-      type: DT_FLOAT
-    }
-  }
-  attr {
-    key: "_output_shapes"
-    value {
-      list {
-        shape {
-          dim {
-            size: 128
-          }
-          dim {
-            size: 64
-          }
-        }
-      }
-    }
-  }
-}
-node {
   name: "rnn/rnn/while/GreaterEqual/Enter"
   op: "Enter"
   input: "rnn/rnn/CheckSeqLen"
@@ -8993,7 +8547,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@rnn/rnn/while/dropout/mul"
+        s: "loc:@rnn/rnn/while/rnn/lstm_cell/lstm_cell/mul_5"
       }
     }
   }
@@ -9036,7 +8590,7 @@ node {
   op: "Select"
   input: "rnn/rnn/while/GreaterEqual"
   input: "rnn/rnn/while/Select/Enter"
-  input: "rnn/rnn/while/dropout/mul"
+  input: "rnn/rnn/while/rnn/lstm_cell/lstm_cell/mul_5"
   attr {
     key: "T"
     value {
@@ -9047,7 +8601,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@rnn/rnn/while/dropout/mul"
+        s: "loc:@rnn/rnn/while/rnn/lstm_cell/lstm_cell/mul_5"
       }
     }
   }
@@ -9201,7 +8755,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@rnn/rnn/while/dropout/mul"
+        s: "loc:@rnn/rnn/while/rnn/lstm_cell/lstm_cell/mul_5"
       }
     }
   }
@@ -9253,7 +8807,7 @@ node {
     key: "_class"
     value {
       list {
-        s: "loc:@rnn/rnn/while/dropout/mul"
+        s: "loc:@rnn/rnn/while/rnn/lstm_cell/lstm_cell/mul_5"
       }
     }
   }
@@ -11186,7 +10740,7 @@ node {
         dtype: DT_FLOAT
         tensor_shape {
         }
-        float_val: 9.99999974738e-05
+        float_val: 0.000500000023749
       }
     }
   }
@@ -36161,7 +35715,7 @@ node {
         dtype: DT_STRING
         tensor_shape {
         }
-        string_val: "_temp_36c8904b6f9543dbb0fb954a3318eb86/part"
+        string_val: "_temp_3275f5765bec4e559e3c86e32e4339a6/part"
       }
     }
   }

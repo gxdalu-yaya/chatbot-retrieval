@@ -1,4 +1,16 @@
 validation_res:
-recall_at_5 = 0.99652173913, recall_at_2 = 0.964782608696, recall_at_1 = 0.885217391304
+loss = 0.286192, recall_at_10 = 1.0, global_step = 9200, recall_at_5 = 0.996956521739, recall_at_2 = 0.965652173913, recall_at_1 = 0.889130434783
 test_res:
-recall_at_1 = 0.886037407569, recall_at_10 = 1.0, recall_at_2 = 0.95867768595, recall_at_5 = 0.992605480644
+global_step = 9221, loss = 0.324509, recall_at_1 = 0.869943453676, recall_at_10 = 1.0, recall_at_2 = 0.952588081775, recall_at_5 = 0.996955197912
+
+0327
+validation_res:
+loss = 0.237226, recall_at_10 = 1.0, global_step = 4400, recall_at_5 = 0.998260869565, recall_at_2 = 0.950434782609, recall_at_1 = 0.868260869565
+test_res:
+global_step = 4595, loss = 0.242424, recall_at_1 = 0.844280121792, recall_at_10 = 1.0, recall_at_2 = 0.937364071335, recall_at_5 = 0.994780339278
+
+v:
+ (step 8196): loss = 0.303483, recall_at_10 = 1.0, global_step = 8196, recall_at_5 = 0.998695652174, recall_at_2 = 0.961304347826, recall_at_1 = 0.877391304348
+t:
+global_step = 8391, loss = 0.362245, recall_at_1 = 0.848194867334, recall_at_10 = 1.0, recall_at_2 = 0.941278816877, recall_at_5 = 0.993040452371
+
